@@ -2,7 +2,7 @@
 
 **A pocket-sized, four-key Bluetooth macro pad for the Even Realities G2 smart glasses.**
 
-G2Pad gives the G2 a real, clicky, physical controller. Four official GitHub keycaps sit on MX switches in a 2×2 grid: **Back**, **Up**, **Select** and **Down**. It runs on a coin-sized Seeed XIAO nRF52840 with a tiny LiPo, so it lives in a pocket and works without looking at it.
+G2Pad is a pocket-sized wireless macro pad for my Even Realities G2 smart glasses, using four GitHub keycaps. The goal is to create a compact, physical alternative to the glasses' existing touch and ring controls, making it easier to navigate and interact with custom applications.
 
 ![G2Pad assembled](docs/images/assembly.png)
 
@@ -17,7 +17,7 @@ G2Pad gives the G2 a real, clicky, physical controller. Four official GitHub key
 
 ## Why I made it
 
-The G2 is controlled with taps and swipes on the temples or with the R1 smart ring. Those work, but they are fiddly when you are walking, wearing gloves, presenting, or trying to move through a long menu in a custom app. I wanted something I can feel in my pocket and press without looking: real keys with real travel, one job per key. Building it also lets me design my own Even Hub apps around a controller I know exactly.
+The G2 is conventionally controlled with taps and swipes on the sides of the glasses or with the R1 smart ring. Those work, but they are fiddly when you are walking, wearing gloves, presenting, or trying to move through a long menu in a custom app. Plus, the popular R1 ring is an extra $250 on top of the existing $600+ price tag of the glasses themselves with prescriptions. I wanted to make the cheaper alternative, while also providing better physical feedback for controls.
 
 ## How to use it
 
@@ -45,7 +45,7 @@ The G2 is controlled with taps and swipes on the temples or with the R1 smart ri
 | Up + Down together | toggle **Nav mode**: arrows, Enter, Esc | |
 | Hold Back + Select | Bluetooth layer: Up = next paired device, Down = forget pairing | |
 
-The keys send plain letters (Q, W, E, S) instead of special keys, which phones pass through more reliably. Charge it by plugging USB-C into the XIAO with the switch ON. After 15 minutes idle it sleeps, and any key wakes it.
+The keys send plain letters (Q, W, E, S) instead of special keys, which I found phones pass through a lot more reliably. Charge the pad by plugging USB-C into the XIAO with the switch ON. After 15 minutes idle it sleeps to save energy, to which you can wake it up again by clicking any key.
 
 ## How it talks to the glasses
 
@@ -53,9 +53,7 @@ The keys send plain letters (Q, W, E, S) instead of special keys, which phones p
 [G2Pad] --BLE keyboard (HID)--> [phone] --> [Even Hub app (web app in the Even app)] --Even Hub SDK--> [G2 display]
 ```
 
-The G2 has no keyboard input of its own, so the phone is the bridge. G2Pad pairs with the phone as a normal Bluetooth keyboard. Even Hub apps are web apps that the Even Realities app runs in a WebView on the phone, and they draw to the glasses through the Even Hub SDK ([Even Hub architecture](https://hub.evenrealities.com/docs/get-started/architecture)). The plan is for my G2 app to listen for the Q/W/E/S key presses and turn them into G2 actions (scroll, select, back).
-
-## Design
+The G2 has no keyboard input of its own, so the phone serves as the middleman. G2Pad pairs with the phone as a normal Bluetooth keyboard through an Even Hub app I will build. Even Hub apps are web apps that the Even Realities app runs in a WebView on the phone; they draw to the glasses through the Even Hub SDK ([Even Hub architecture](https://hub.evenrealities.com/docs/get-started/architecture)). The plan is for my G2 app to listen for the Q/W/E/S key presses and turn them into G2 actions (scroll, select, back).
 
 ### Schematic
 
@@ -63,20 +61,11 @@ The G2 has no keyboard input of its own, so the phone is the bridge. G2Pad pairs
 
 Each switch connects one XIAO pin to ground and uses the chip's internal pull-up, so there is no matrix and no diodes.
 
-| Key | XIAO pin | nRF52840 pin |
-|---|---|---|
-| SW1 Back | D10 | P1.15 |
-| SW2 Up | D4 | P0.04 |
-| SW3 Select | D9 | P1.14 |
-| SW4 Down | D5 | P0.05 |
-
-The LiPo plugs into a JST-PH socket (J1) on the back of the board. It goes through the slide switch (SW5) to two pads (J2), and two short wires connect J2 to the BAT+ / BAT− pads underneath the XIAO, which has its own charger.
-
 ### PCB
 
 ![PCB front and back](docs/images/pcb.png)
 
-A 2-layer, 42 × 64 mm board with ground pours on both sides. The key signals run on the back layer, and the XIAO is surface-mounted by its castellated edges with USB-C at the board edge. The DRC report shows 0 errors and 0 unconnected pads. Fabrication files are in [`pcb/gerbers.zip`](pcb/gerbers.zip), ready to upload to JLCPCB or any other fab.
+A 2-layer, 42 × 64 mm board with ground pours on both sides. Fabrication files are in [`pcb/gerbers.zip`](pcb/gerbers.zip), ready to upload to JLCPCB or any other fab.
 
 ### Case
 
@@ -87,62 +76,16 @@ Two 3D-printed parts:
 * **Bottom tray**: holds the LiPo under the PCB, has three standoffs, a USB-C opening, a slot for the power switch, and a lanyard hole.
 * **Top plate**: a 1.5 mm switch plate set at the MX standard height (5 mm above the PCB). It has screw bosses, plus a pocket on its underside for the XIAO.
 
-Three M2 × 12 screws go up through the tray and the PCB into the plate bosses, clamping everything together. The FreeCAD build script checks for collisions between the printed parts and the electronics, and finds none.
+Three M2 × 12 screws go up through the tray and the PCB into the plate bosses, clamping everything together. 
 
 ![Inside the case](docs/images/internals.png)
 
-## Repository layout
-
-| Path | What's inside |
-|---|---|
-| [`cad/g2pad.FCStd`](cad/g2pad.FCStd) | FreeCAD source with the full assembly: enclosure, PCB, XIAO, switches, battery, keycaps |
-| [`cad/g2pad_assembly.step`](cad/g2pad_assembly.step) | Full assembly as STEP |
-| [`cad/step/`](cad/step) | STEP for each part: bottom tray, top plate, PCB, keycap reference |
-| [`cad/build_g2pad.py`](cad/build_g2pad.py) | Parametric script that rebuilds the FreeCAD model and all STEP files |
-| [`pcb/g2pad.kicad_pro`](pcb/g2pad.kicad_pro) | KiCad project (`.kicad_pro`, `.kicad_sch`, `.kicad_pcb`, `.kicad_prl`) |
-| [`pcb/gerbers.zip`](pcb/gerbers.zip) | Gerbers and drill files for fabrication |
-| [`pcb/g2pad_schematic.pdf`](pcb/g2pad_schematic.pdf) | Schematic as PDF |
-| [`pcb/lib/`](pcb/lib) | Custom KiCad symbol and footprint for the XIAO nRF52840 |
-| [`pcb/scripts/`](pcb/scripts) | Scripts that generate the schematic and board, and export the fab files |
-| [`firmware/`](firmware) | ZMK config: shield, keymap, build matrix |
-| [`BOM.csv`](BOM.csv) | Bill of materials with a link for every part |
-| [`docs/`](docs) | README images and the three.js render page |
-
 ## Firmware
 
-G2Pad runs ZMK as a custom shield (`g2pad`) on the `xiao_ble` board. The GitHub Actions workflow in [`.github/workflows/build.yml`](.github/workflows/build.yml) builds the firmware on every push. To flash it:
+G2Pad runs ZMK as a custom shield (`g2pad`) on the `xiao_ble` board. The GitHub Actions workflow I built in [`.github/workflows/build.yml`](.github/workflows/build.yml) builds the firmware on every push for convenience. 
 
-1. Download the `firmware` artifact from the latest Actions run.
-2. Plug in G2Pad and double-tap the XIAO's reset button. A USB drive called `XIAO-SENSE` appears.
-3. Drag the `.uf2` file onto the drive.
-
-To change what the keys do, edit [`firmware/g2pad.keymap`](firmware/g2pad.keymap). The firmware has not been tested on hardware yet. This is a design submission, and the parts are not built yet.
+To change what the keys do, you can edit [`firmware/g2pad.keymap`](firmware/g2pad.keymap). 
 
 ## Bill of materials
 
-See [BOM.csv](BOM.csv) for links. I don't own any of these parts yet.
-
-| Part | Qty | ≈ Cost |
-|---|---|---|
-| Official GitHub keycaps | 1 set | $28.00 |
-| Seeed XIAO nRF52840 | 1 | $9.90 |
-| MX switches (5-pin) | 4 | $4.00 |
-| 3.7 V 150 mAh LiPo (JST-PH) | 1 | $5.95 |
-| JST-PH socket, PCM12 slide switch, wire, M2 screws | | $1.25 |
-| PCB (5 pcs) + 3D printing | | $7.00 |
-| **Total** | | **≈ $56 + shipping** |
-
-## Build steps
-
-1. Order the PCB (`pcb/gerbers.zip`) and print `cad/step/g2pad_bottom_tray.step` and `g2pad_top_plate.step` (PLA or PETG, 0.2 mm layers, no supports, with the plate printed top side down).
-2. Solder the XIAO, the slide switch, the JST socket (on the back) and the J2 wires to the XIAO's BAT pads.
-3. Snap the 4 switches into the top plate, then drop the plate onto the PCB and solder the switches.
-4. Plug in the LiPo, set it in the tray, and screw the stack together with 3 × M2 screws from below.
-5. Flash the firmware, put on the GitHub keycaps, and pair with your phone.
-
-## Roadmap
-
-- [x] Design: schematic, PCB, case, firmware, BOM
-- [ ] Order parts and build the prototype
-- [ ] Even Hub app that maps Q/W/E/S to G2 navigation
-- [ ] Build, test daily, and polish
+See [BOM.csv](BOM.csv) for links!
