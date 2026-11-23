@@ -8,6 +8,7 @@
  *   SW4 DOWN   (bottom-right) -> D5  (P0.05)
  */
 #include <physical_layouts.dtsi>
+#include <dt-bindings/zmk/matrix_transform.h>
 
 /* D4/D5 and D9/D10 are used as plain GPIO, so free them from I2C/SPI. */
 &xiao_i2c { status = "disabled"; };
@@ -30,10 +31,18 @@
             ;
     };
 
+    default_transform: keymap_transform_0 {
+        compatible = "zmk,matrix-transform";
+        rows = <1>;
+        columns = <4>;
+        map = <RC(0,0) RC(0,1) RC(0,2) RC(0,3)>;
+    };
+
     g2pad_layout: g2pad_layout {
         compatible = "zmk,physical-layout";
         display-name = "G2Pad 2x2";
         kscan = <&kscan0>;
+        transform = <&default_transform>;
         keys  //                     w   h   x   y   rot rx  ry
             = <&key_physical_attrs 100 100   0   0   0   0   0>
             , <&key_physical_attrs 100 100 100   0   0   0   0>
