@@ -55,8 +55,6 @@ The keys send plain letters (Q, W, E, S) instead of special keys, which phones p
 
 The G2 has no keyboard input of its own, so the phone is the bridge. G2Pad pairs with the phone as a normal Bluetooth keyboard. Even Hub apps are web apps that the Even Realities app runs in a WebView on the phone, and they draw to the glasses through the Even Hub SDK ([Even Hub architecture](https://hub.evenrealities.com/docs/get-started/architecture)). The plan is for my G2 app to listen for the Q/W/E/S key presses and turn them into G2 actions (scroll, select, back).
 
-**Open question I'm testing first:** the official docs only describe input from the glasses' touchpads and the R1 ring. I have not found a public project that already drives G2 apps from a Bluetooth keyboard, so step one when parts arrive is to check that the Even app's WebView receives key presses. If it does not, the fallback is to have G2Pad's firmware advertise its own small BLE service that a companion app reads. Third-party projects such as [Faceclaw](https://github.com/jimrandomh/faceclaw), which adds a Wear OS watch as an extra remote, show that the G2 can take input from devices other than the ring. More G2 developer resources: [awesome-even-realities-g2](https://github.com/pangoleen/awesome-even-realities-g2).
-
 ## Design
 
 ### Schematic
@@ -145,6 +143,6 @@ See [BOM.csv](BOM.csv) for links. I don't own any of these parts yet.
 ## Roadmap
 
 - [x] Design: schematic, PCB, case, firmware, BOM
-- [ ] Order parts, then check that the Even app WebView receives key presses
+- [ ] Order parts and build the prototype
 - [ ] Even Hub app that maps Q/W/E/S to G2 navigation
 - [ ] Build, test daily, and polish
