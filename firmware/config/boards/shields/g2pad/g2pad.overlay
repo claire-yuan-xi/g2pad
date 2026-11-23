@@ -1,0 +1,44 @@
+/*
+ * G2Pad shield for the Seeed XIAO nRF52840.
+ * Four MX switches, each wired from a XIAO pin to GND (no matrix, no diodes).
+ *
+ *   SW1 BACK   (top-left)     -> D10 (P1.15)
+ *   SW2 UP     (top-right)    -> D4  (P0.04)
+ *   SW3 SELECT (bottom-left)  -> D9  (P1.14)
+ *   SW4 DOWN   (bottom-right) -> D5  (P0.05)
+ */
+#include <physical_layouts.dtsi>
+
+/* D4/D5 and D9/D10 are used as plain GPIO, so free them from I2C/SPI. */
+&xiao_i2c { status = "disabled"; };
+&xiao_spi { status = "disabled"; };
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,physical-layout = &g2pad_layout;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-direct";
+        wakeup-source;
+        input-gpios
+            = <&xiao_d 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&xiao_d 4  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&xiao_d 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&xiao_d 5  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            ;
+    };
+
+    g2pad_layout: g2pad_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "G2Pad 2x2";
+        kscan = <&kscan0>;
+        keys  //                     w   h   x   y   rot rx  ry
+            = <&key_physical_attrs 100 100   0   0   0   0   0>
+            , <&key_physical_attrs 100 100 100   0   0   0   0>
+            , <&key_physical_attrs 100 100   0 100   0   0   0>
+            , <&key_physical_attrs 100 100 100 100   0   0   0>
+            ;
+    };
+};

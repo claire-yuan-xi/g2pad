@@ -1,0 +1,8 @@
+file_format: "1"
+id: g2pad
+name: G2Pad
+type: shield
+url: https://github.com/claire-yuan-xi/g2pad
+requires: [seeed_xiao]
+features:
+  - keys

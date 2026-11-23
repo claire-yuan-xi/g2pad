@@ -1,0 +1,6 @@
+if SHIELD_G2PAD
+
+config ZMK_KEYBOARD_NAME
+    default "G2Pad"
+
+endif

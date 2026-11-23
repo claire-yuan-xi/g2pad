@@ -1,0 +1,5 @@
+# ZMK build matrix for G2Pad (used by .github/workflows/build.yml)
+---
+include:
+  - board: xiao_ble//zmk
+    shield: g2pad
