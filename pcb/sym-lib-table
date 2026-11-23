@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "G2Pad")(type "KiCad")(uri "${KIPRJMOD}/lib/G2Pad.kicad_sym")(options "")(descr "G2Pad custom symbols"))
+)
