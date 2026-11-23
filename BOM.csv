@@ -1,24 +1,23 @@
 Item,Ref,Qty,Unit price (USD),Total (USD),Owned?,Link,Notes
-Official GitHub keycaps (MX stem),Keycaps,1 set (4 keys),33.00,33.00,No,https://thegithubshop.com/products/1542509-00-key-caps-assorted-pack-of-8?_pos=1&_sid=56037fb52&_ss=r,Official GitHub merch keycaps from the GitHub Shop; MX cross stem
+Macro Pad keycaps (MX stem),Keycaps,1,17.00,17.00,No,https://thegithubshop.com/products/1542509-00-key-caps-assorted-pack-of-8?_pos=1&_sid=56037fb52&_ss=r,Official GitHub keycaps from the GitHub Shop; MX cross stem
 Seeed Studio XIAO nRF52840,U1,1,14.90,14.90,No,https://www.seeedstudio.com/Seeed-XIAO-BLE-nRF52840-p-5201.html,"BLE 5 MCU, USB-C, built-in LiPo charger; runs ZMK"
-MX-style mechanical switches (5-pin),SW1-SW4,4 (sold in packs of 10),0.40,9.00,No,https://www.amazon.com/s?k=gateron+mx+switches+5+pin,Any 5-pin MX switch; PCB-mount pegs match the footprint
-LiPo battery 3.7 V 150 mAh with JST-PH,BT1,1,10.95,10.95,No,https://www.adafruit.com/products/1317,19.75 x 26 x 3.8 mm; fits the pocket under the PCB
+MX-style mechanical switches (5-pin),SW1-SW4,4,0.40,9.00,No,https://www.amazon.com/s?k=gateron+mx+switches+5+pin,Any 5-pin MX switch; PCB-mount pegs match the footprint
+LiPo battery 3.7 V 150 mAh with JST-PH,BT1,1,8.95,8.95,No,https://www.adafruit.com/products/1317,19.75 x 26 x 3.8 mm; fits the pocket under the PCB
 JST-PH 2-pin vertical socket (B2B-PH-K-S),J1,1,5.20,5.20,No,https://www.digikey.com/en/products/detail/jst-sales-america-inc/B2B-PH-K-S-LF-SN/926611,Mounted on the back of the PCB
 C&K PCM12SMTR side slide switch,SW5,1,5.65,5.65,No,https://www.digikey.com/en/products/detail/c-k/PCM12SMTR/1640112,"Power on/off, lever pokes out of the left wall"
-G2Pad PCB (2-layer 42 x 64 mm 1.6 mm),PCB,5 (minimum order),0.40,7.00,No,https://jlcpcb.com/,Upload pcb/gerbers.zip; plus shipping
+G2Pad PCB (2-layer 42 x 64 mm 1.6 mm),PCB,5,0.40,7.00,No,https://jlcpcb.com/,Upload pcb/gerbers.zip; plus shipping
 3D-printed bottom tray + top plate (PLA/PETG),Enclosure,1,10.00,10.00,No,https://jlcpcb.com/3d-printing,cad/step/g2pad_bottom_tray.step and g2pad_top_plate.step
-M2 x 12 mm screws (self-tapping),H1-H3,3 (from a kit),0.10,5.30,No,https://www.amazon.com/s?k=m2+self+tapping+screws+kit,Screw up through the tray and PCB into the plate bosses
-30 AWG silicone wire,J2 to XIAO,10 cm,0.10,5.10,No,https://www.amazon.com/s?k=30+awg+silicone+wire,Two short leads from J2 to the XIAO BAT+ / BAT- pads
+M2 x 12 mm screws (self-tapping),H1-H3,3,0.10,5.30,No,https://www.amazon.com/s?k=m2+self+tapping+screws+kit,Screw up through the tray and PCB into the plate bosses
+30 AWG silicone wire,J2 to XIAO,10,0.10,5.10,No,https://www.amazon.com/s?k=30+awg+silicone+wire,Two short leads from J2 to the XIAO BAT+ / BAT- pads
 Temperature-controlled soldering iron kit,Tool,1,25.00,25.00,No,https://www.amazon.com/s?k=temperature+controlled+soldering+iron+kit+stand,"Adjustable temp with stand, sponge/brass cleaner and spare tips"
 Rosin-core solder 0.8 mm (63/37),Tool,1,13.00,13.00,No,https://www.amazon.com/s?k=63%2F37+rosin+core+solder+0.8mm,Thin solder for the switch pins and XIAO pads
 No-clean flux pen,Tool,1,12.00,12.00,No,https://www.amazon.com/s?k=no+clean+flux+pen,Makes the small XIAO and slide switch joints much easier
 Solder wick (desoldering braid),Tool,1,10.00,10.00,No,https://www.amazon.com/s?k=solder+wick+desoldering+braid,For fixing bridges and mistakes
 Flush cutters,Tool,1,12.00,12.00,No,https://www.amazon.com/s?k=flush+cutters+electronics,Trim leads and wire
 Wire strippers (20-30 AWG),Tool,1,15.00,15.00,No,https://www.amazon.com/s?k=wire+stripper+30+awg,Must go down to 30 AWG for the battery leads
-ESD-safe precision tweezers,Tool,1,11.00,11.00,No,https://www.amazon.com/s?k=esd+precision+tweezers+set,Hold the slide switch and JST socket while soldering
-Digital multimeter,Tool,1,20.00,20.00,No,https://www.amazon.com/s?k=digital+multimeter+continuity,Check continuity and battery polarity before plugging in
+ESD-safe precision tweezers,Tool,1,11.00,11.00,No,https://www.amazon.com/s?k=esd+precision+tweezers+set,Holds the slide switch and JST socket while soldering
+Digital multimeter,Tool,1,20.00,20.00,No,https://www.amazon.com/s?k=digital+multimeter+continuity,Measures electrical properties like voltage
 Helping hands / PCB holder,Tool,1,17.00,17.00,No,https://www.amazon.com/s?k=pcb+holder+helping+hands+soldering,Holds the board steady while soldering
 Precision screwdriver set,Tool,1,15.00,15.00,No,https://www.amazon.com/s?k=precision+screwdriver+set,Phillips bits for the M2 case screws
 USB-C data cable,Tool,1,13.00,13.00,No,https://www.amazon.com/s?k=usb+c+data+cable,Must support data (not charge-only) to flash the ZMK firmware
 Kapton tape,Tool,1,12.00,12.00,No,https://www.amazon.com/s?k=kapton+tape,Insulates the battery and XIAO underside
-Safety glasses,Tool,1,13.00,13.00,No,https://www.amazon.com/s?k=safety+glasses+clear,Protects your eyes from flying solder and clipped leads
