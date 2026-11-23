@@ -118,7 +118,7 @@ G2Pad runs ZMK as a custom shield (`g2pad`) on the `xiao_ble` board. The GitHub 
 2. Plug in G2Pad and double-tap the XIAO's reset button. A USB drive called `XIAO-SENSE` appears.
 3. Drag the `.uf2` file onto the drive.
 
-To change what the keys do, edit [`firmware/config/g2pad.keymap`](firmware/config/g2pad.keymap). The firmware has not been tested on hardware yet. This is a design submission, and the parts are not built yet.
+To change what the keys do, edit [`firmware/g2pad.keymap`](firmware/g2pad.keymap). The firmware has not been tested on hardware yet. This is a design submission, and the parts are not built yet.
 
 ## Bill of materials
 
