@@ -1,13 +1,11 @@
 Item,Ref,Qty,Unit price (USD),Total (USD),Owned?,Link,Notes
-Official GitHub keycaps (MX stem),Keycaps,1 set (4 keys),28.00,28.00,No,https://thegithubshop.com/,"Official GitHub merch keycaps from the GitHub Shop; MX cross stem"
-Seeed Studio XIAO nRF52840,U1,1,9.90,9.90,No,https://www.seeedstudio.com/Seeed-XIAO-BLE-nRF52840-p-5201.html,"BLE 5 MCU, USB-C, built-in LiPo charger; runs ZMK"
-MX-style mechanical switches (5-pin),SW1-SW4,4 (sold in packs of 10),0.40,4.00,No,https://www.amazon.com/s?k=gateron+mx+switches+5+pin,"Any 5-pin MX switch; PCB-mount pegs match the footprint"
-LiPo battery 3.7 V 150 mAh with JST-PH,BT1,1,5.95,5.95,No,https://www.adafruit.com/products/1317,"19.75 x 26 x 3.8 mm; fits the pocket under the PCB"
-JST-PH 2-pin vertical socket (B2B-PH-K-S),J1,1,0.20,0.20,No,https://www.digikey.com/en/products/detail/jst-sales-america-inc/B2B-PH-K-S-LF-SN/926611,"Mounted on the back of the PCB"
-C&K PCM12SMTR side slide switch,SW5,1,0.65,0.65,No,https://www.digikey.com/en/products/detail/c-k/PCM12SMTR/1640112,"Power on/off, lever pokes out of the left wall"
-G2Pad PCB (2-layer 42 x 64 mm 1.6 mm),PCB,5 (minimum order),0.40,2.00,No,https://jlcpcb.com/,"Upload pcb/gerbers.zip; plus shipping"
-3D-printed bottom tray + top plate (PLA/PETG),Enclosure,1,5.00,5.00,No,https://jlcpcb.com/3d-printing,"cad/step/g2pad_bottom_tray.step and g2pad_top_plate.step; or print at home/school"
-M2 x 12 mm screws (self-tapping),H1-H3,3 (from a kit),0.10,0.30,No,https://www.amazon.com/s?k=m2+self+tapping+screws+kit,"Screw up through the tray and PCB into the plate bosses"
-30 AWG silicone wire,J2 to XIAO,10 cm,0.10,0.10,No,https://www.amazon.com/s?k=30+awg+silicone+wire,"Two short leads from J2 to the XIAO BAT+ / BAT- pads"
-,,,,,,,
-TOTAL,,,,56.10,,,"Shipping not included"
+Official GitHub keycaps (MX stem),Keycaps,1 set (4 keys),33.00,33.00,No,https://thegithubshop.com/products/1542509-00-key-caps-assorted-pack-of-8?_pos=1&_sid=56037fb52&_ss=r,Official GitHub merch keycaps from the GitHub Shop; MX cross stem
+Seeed Studio XIAO nRF52840,U1,1,14.90,14.90,No,https://www.seeedstudio.com/Seeed-XIAO-BLE-nRF52840-p-5201.html,"BLE 5 MCU, USB-C, built-in LiPo charger; runs ZMK"
+MX-style mechanical switches (5-pin),SW1-SW4,4 (sold in packs of 10),0.40,9.00,No,https://www.amazon.com/s?k=gateron+mx+switches+5+pin,Any 5-pin MX switch; PCB-mount pegs match the footprint
+LiPo battery 3.7 V 150 mAh with JST-PH,BT1,1,10.95,10.95,No,https://www.adafruit.com/products/1317,19.75 x 26 x 3.8 mm; fits the pocket under the PCB
+JST-PH 2-pin vertical socket (B2B-PH-K-S),J1,1,5.20,5.20,No,https://www.digikey.com/en/products/detail/jst-sales-america-inc/B2B-PH-K-S-LF-SN/926611,Mounted on the back of the PCB
+C&K PCM12SMTR side slide switch,SW5,1,5.65,5.65,No,https://www.digikey.com/en/products/detail/c-k/PCM12SMTR/1640112,"Power on/off, lever pokes out of the left wall"
+G2Pad PCB (2-layer 42 x 64 mm 1.6 mm),PCB,5 (minimum order),0.40,7.00,No,https://jlcpcb.com/,Upload pcb/gerbers.zip; plus shipping
+3D-printed bottom tray + top plate (PLA/PETG),Enclosure,1,10.00,10.00,No,https://jlcpcb.com/3d-printing,cad/step/g2pad_bottom_tray.step and g2pad_top_plate.step
+M2 x 12 mm screws (self-tapping),H1-H3,3 (from a kit),0.10,5.30,No,https://www.amazon.com/s?k=m2+self+tapping+screws+kit,Screw up through the tray and PCB into the plate bosses
+30 AWG silicone wire,J2 to XIAO,10 cm,0.10,5.10,No,https://www.amazon.com/s?k=30+awg+silicone+wire,Two short leads from J2 to the XIAO BAT+ / BAT- pads
