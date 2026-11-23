@@ -12,8 +12,7 @@ G2Pad is a pocket-sized wireless macro pad for my Even Realities G2 smart glasse
 | Brain | Seeed Studio XIAO nRF52840 (Bluetooth LE 5, USB-C charging) |
 | Keys | 4 × MX-style switches + official GitHub keycaps |
 | Power | 150 mAh LiPo, on/off slide switch, charges over USB-C |
-| Firmware | [ZMK](https://zmk.dev) (open-source wireless keyboard firmware) |
-| Cost | about $56 in parts ([BOM.csv](BOM.csv)) |
+| Firmware | [ZMK](https://zmk.dev) (open-source wireless keyboard firmware)|
 
 ## Why I made it
 
