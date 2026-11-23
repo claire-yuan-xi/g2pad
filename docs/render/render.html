@@ -1,0 +1,42 @@
+<!doctype html><html><head><style>html,body{margin:0;background:#f4f6f8}canvas{display:block}</style></head><body>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {STLLoader} from 'three/addons/loaders/STLLoader.js';
+import {toCreasedNormals} from 'three/addons/utils/BufferGeometryUtils.js';
+const q=new URLSearchParams(location.search); const view=q.get('view')||'iso';
+const W=+q.get('w')||1600,H=+q.get('h')||1100;
+const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true}); r.setSize(W,H); r.setPixelRatio(1);
+r.outputColorSpace=THREE.SRGBColorSpace; r.shadowMap.enabled=true; r.toneMapping=THREE.ACESFilmicToneMapping; r.toneMappingExposure=1.05;
+document.body.appendChild(r.domElement);
+const s=new THREE.Scene(); s.background=new THREE.Color(q.get('bg')||'#f4f6f8');
+const parts={BottomTray:['#24292f',0,0.6],TopPlate:['#f0f2f4',1,0.55],PCB:['#1a7f37',0.5,0.5],XIAO_nRF52840:['#3b4252',0.5,0.4],
+LiPo_402030:['#c9ced6',0.4,0.3],PowerSwitch_PCM12:['#9aa4b1',0.5,0.3],JST_PH_Battery:['#f5f1e6',0.4,0.6],
+Switch_Back_Q:['#202225',0.5,0.5],Switch_Up_W:['#202225',0.5,0.5],Switch_Select_E:['#202225',0.5,0.5],Switch_Down_S:['#202225',0.5,0.5],
+Keycap_Back_Q:['#6e40c9',2,0.45],Keycap_Up_W:['#2f81f7',2,0.45],Keycap_Select_E:['#1f883d',2,0.45],Keycap_Down_S:['#2f81f7',2,0.45]};
+const ex={BottomTray:-22,LiPo_402030:-14,TopPlate:22,PCB:0,XIAO_nRF52840:0,PowerSwitch_PCM12:0,JST_PH_Battery:0};
+const g=new THREE.Group(); s.add(g); const L=new STLLoader(); let n=0;
+for(const [name,[col,grp,rough]] of Object.entries(parts)){
+  L.load('mesh/'+name+'.stl',geo=>{
+    geo=toCreasedNormals(geo,Math.PI/5);
+    const m=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:col,roughness:rough,metalness:name.startsWith('LiPo')?0.6:0.05}));
+    m.castShadow=m.receiveShadow=true;
+    if(view==='exploded'){ m.position.z = name in ex? ex[name] : (name.startsWith('Keycap')? 40 : 0); }
+    if(view==='noplate' && (name==='TopPlate'||name.startsWith('Keycap'))) m.visible=false;
+    g.add(m); if(++n===Object.keys(parts).length) go();
+  });
+}
+function go(){
+  s.add(new THREE.HemisphereLight('#ffffff','#8a8f98',1.1));
+  const d=new THREE.DirectionalLight('#ffffff',2.2); d.position.set(-60,-80,140); d.castShadow=true;
+  d.shadow.mapSize.set(4096,4096); d.shadow.bias=-0.0004; d.shadow.normalBias=0.3; Object.assign(d.shadow.camera,{left:-120,right:120,top:120,bottom:-120,near:1,far:600}); s.add(d);
+  const d2=new THREE.DirectionalLight('#dfe8ff',0.6); d2.position.set(90,60,60); s.add(d2);
+  const ground=new THREE.Mesh(new THREE.PlaneGeometry(800,800),new THREE.ShadowMaterial({opacity:0.18})); ground.position.z=(view==='exploded'?-22:0)-0.01; ground.receiveShadow=true; s.add(ground);
+  const box=new THREE.Box3().setFromObject(g); const c=box.getCenter(new THREE.Vector3()); const sz=box.getSize(new THREE.Vector3()).length();
+  const cam=new THREE.PerspectiveCamera(30,W/H,1,2000); cam.up.set(0,0,1);
+  const dirs={iso:[0.9,-1.35,1.15],exploded:[1.1,-1.5,0.75],top:[0,-0.0001,1],noplate:[0.7,-1.2,1.4]};
+  const v=new THREE.Vector3(...dirs[view]).normalize().multiplyScalar(sz*(view==="exploded"?1.95:1.6));
+  cam.position.copy(c).add(v); cam.lookAt(c);
+  r.render(s,cam); document.title='done';
+}
+</script></body></html>
