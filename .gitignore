@@ -1,0 +1,10 @@
+.DS_Store
+# KiCad backups and caches
+*-backups/
+*.kicad_prl
+fp-info-cache
+_autosave-*
+*.lck
+# ZMK / west build output
+build/
+.west/
