@@ -26,13 +26,13 @@ The G2 is conventionally controlled with taps and swipes on the sides of the gla
 4. Press keys:
 
 ```
- +-------------+-------------+
+ -----------------------------
  |  BACK   (Q) |  UP     (W) |     tap:  send the letter
- |  hold: H    |             |     hold: long-press action
+ |  hold: H    |             |     hold: long press action
  +-------------+-------------+
  |  SELECT (E) |  DOWN   (S) |
  |  hold: M    |             |
- +-------------+-------------+
+ -----------------------------
 ```
 
 | Key | Tap | Hold (> 0.4 s) |
@@ -52,7 +52,7 @@ The keys send plain letters (Q, W, E, S) instead of special keys, which I found 
 [G2Pad] --BLE keyboard (HID)--> [phone] --> [Even Hub app (web app in the Even app)] --Even Hub SDK--> [G2 display]
 ```
 
-The G2 has no keyboard input of its own, so the phone serves as the middleman. G2Pad pairs with the phone as a normal Bluetooth keyboard through an Even Hub app I will build. Even Hub apps are web apps that the Even Realities app runs in a WebView on the phone; they draw to the glasses through the Even Hub SDK ([Even Hub architecture](https://hub.evenrealities.com/docs/get-started/architecture)). The plan is for my G2 app to listen for the Q/W/E/S key presses and turn them into G2 actions (scroll, select, back).
+The G2 has no keyboard input of its own, so the phone serves as the middleman, as Even doesn't support external keyboards very well. G2Pad pairs with the phone as a normal Bluetooth keyboard through an Even Hub app I will build as a future project. Even Hub apps are web apps that the Even Realities app runs in a WebView on the phone; they draw to the glasses through the Even Hub SDK ([Even Hub architecture](https://hub.evenrealities.com/docs/get-started/architecture)). The plan is for my G2 app to listen for the Q/W/E/S key presses and turn them into G2 actions!
 
 ### Schematic
 
@@ -81,9 +81,9 @@ Three M2 × 12 screws go up through the tray and the PCB into the plate bosses, 
 
 ## Firmware
 
-G2Pad runs ZMK as a custom shield (`g2pad`) on the `xiao_ble` board. The GitHub Actions workflow I built in [`.github/workflows/build.yml`](.github/workflows/build.yml) builds the firmware on every push for convenience. 
+G2Pad runs ZMK as a custom shield (`g2pad`) on the `xiao_ble` board. The GitHub Actions workflow I built in [`.github/workflows/build.yml`](.github/workflows/build.yml) builds the firmware on every push for my convenience :) 
 
-To change what the keys do, you can edit [`firmware/g2pad.keymap`](firmware/g2pad.keymap). 
+To change what the keys do, I can edit [`firmware/g2pad.keymap`](firmware/g2pad.keymap). 
 
 ## Bill of materials
 
