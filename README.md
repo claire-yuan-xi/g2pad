@@ -1,8 +1,8 @@
 # G2Pad
 
-**A pocket-sized, four-key Bluetooth macro pad for the Even Realities G2 smart glasses.**
+**TLDR: A pocket-sized, four-key Bluetooth macro pad for the Even Realities G2 smart glasses.**
 
-G2Pad is a pocket-sized wireless macro pad for my Even Realities G2 smart glasses, using four GitHub keycaps. The goal is to create a compact, physical alternative to the glasses' existing touch and ring controls, making it easier to navigate and interact with custom applications.
+Hiya! G2Pad is a pocket-sized wireless macro pad for my new Even Realities G2 smart glasses, using four official GitHub keycaps (not illustrated in the render). The goal is to create a compact, physical alternative to the glasses' existing touch and ring controls, making it easier to navigate and interact with custom applications (that will also be made soon in the near future!)
 
 ![G2Pad assembled](docs/images/assembly.png)
 
