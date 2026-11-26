@@ -1,90 +1,64 @@
 # G2Pad
 
-**TLDR: A pocket-sized, four-key Bluetooth macro pad for the Even Realities G2 smart glasses.**
+G2Pad is a four-key Bluetooth macro pad for the Even Realities G2 smart glasses with fast command input and direct control of the glasses's interface. 
 
-Hiya! G2Pad is a pocket-sized wireless macro pad for my new Even Realities G2 smart glasses, using four official GitHub keycaps (not illustrated in the render). The goal is to create a compact, physical alternative to the glasses' existing touch and ring controls, making it easier to navigate and interact with custom applications (that will also be made soon in the near future!)
+![alt text](image.png)
+p.s. apologies for the sometimes fuzzy quality of my visuals and posters- I screenshotted them directly from Canva
 
-![G2Pad assembled](docs/images/assembly.png)
 
-| | |
-|---|---|
-| Size | 47 × 69 × 16 mm case (about 28 mm tall with keycaps) |
-| Brain | Seeed Studio XIAO nRF52840 (Bluetooth LE 5, USB-C charging) |
-| Keys | 4 × MX-style switches + official GitHub keycaps |
-| Power | 150 mAh LiPo, on/off slide switch, charges over USB-C |
-| Firmware | [ZMK](https://zmk.dev) (open-source wireless keyboard firmware)|
+G2Pad was designed to use four official GitHub keycaps which requires MX-style mechanical switches. The goal of G2Pad is to create a cheaper alternative to the glasses' existing touch and ring controls, as the glasses alone cost upwards of 600 bucks with prescriptions and an extra $300 for the gadget 'R1 ring.' Using a macro pad for control allows for better physical feedback as well. 
 
-## Why I made it
+The main personal reason I built G2Pad was also to show my dad the product of his monetary investment in me in the form of a dedicated electronics build for him and also to repay him for paying for these expensive smart glasses. 
 
-The G2 is conventionally controlled with taps and swipes on the sides of the glasses or with the R1 smart ring. Those work, but they are fiddly when you are walking, wearing gloves, presenting, or trying to move through a long menu in a custom app. Plus, the popular R1 ring is an extra $250 on top of the existing $600+ price tag of the glasses themselves with prescriptions. I wanted to make the cheaper alternative, while also providing better physical feedback for controls.
+Also special thanks to my teachers and friends involved in helping me develop these visuals and posters!!
 
-## How to use it
+![alt text](image-1.png)
+## Features
++ 4 MX-style mechanical switches
++ Seeed Studio XIAO nRF52840 with Bluetooth Low Energy
++ 150 mAh LiPo battery- charges with USB-C
++ On/Off slide switch
++ Auto Sleep functionality
++ Custom 42 x 64 mm PCB
++ 3D printed 47 x 69 x 16 mm case with a lanyard hole
++ Open source ZMK firmware
 
-1. Slide the power switch on the left side to **ON**.
-2. On your phone, open Bluetooth settings and pair with **G2Pad** (it shows up like a keyboard).
-3. Open a G2 app built to listen for G2Pad keys (see [How it talks to the glasses](#how-it-talks-to-the-glasses)).
-4. Press keys:
+## Controls
 
-```
- -----------------------------
- |  BACK   (Q) |  UP     (W) |     tap:  send the letter
- |  hold: H    |             |     hold: long press action
- +-------------+-------------+
- |  SELECT (E) |  DOWN   (S) |
- |  hold: M    |             |
- -----------------------------
-```
+Each key has a dedicated message that directs to the phone in the form of a letter. The keys 'back' and 'select' specifically do a second function if held down for longer than 0.4 seconds. Each keys control is as follows:
+![alt text](image-2.png)
+There are also two combos:
++ pressing 'up' and 'down' together turns Nav mode on or off, which changes the keys to arrows enter and esc
++ holding 'back' and 'select' together opens the Bluetooth function, which makes 'up' the button to switch to the next paired device and then 'down' to forget the current pairing
 
-| Key | Tap | Hold (> 0.4 s) |
-|---|---|---|
-| Back (top-left) | `Q`, go back | `H`, go home |
-| Up (top-right) | `W`, scroll / move up | |
-| Select (bottom-left) | `E`, confirm | `M`, shortcut / menu |
-| Down (bottom-right) | `S`, scroll / move down | |
-| Up + Down together | toggle **Nav mode**: arrows, Enter, Esc | |
-| Hold Back + Select | Bluetooth layer: Up = next paired device, Down = forget pairing | |
+### How G2Pad works
+G2Pad doesn't take keyboard input on its own, so I made the glasses-connected phone sort of like a middleman which connects to both the glasses and G2Pad via standard Bluetooth HID. The Even Realities app will capture these keystrokes and send corresponding commands to teh glasses over bluetooth. 
+The Even Hub app hasn't been built yet, but after I receive funding that will be my next step!
+## Case
+The case was modeled in FreeCAD and was designed to be printed in 2 parts:
++ the bottom tray, which holds the battery under the PCB and has three standoffs, the USB-C opening, the slot for the power switch, and the lanyard hole
++ the top plate, which is a 1.5 mm switch plate with screw bosses, a pocket for the XIAO underneath, and a recess for a name badge
 
-The keys send plain letters (Q, W, E, S) instead of special keys, which I found phones pass through a lot more reliably. Charge the pad by plugging USB-C into the XIAO with the switch ON. After 15 minutes idle it sleeps to save energy, to which you can wake it up again by clicking any key.
-
-## How it talks to the glasses
-
-```
-[G2Pad] --BLE keyboard (HID)--> [phone] --> [Even Hub app (web app in the Even app)] --Even Hub SDK--> [G2 display]
-```
-
-The G2 has no keyboard input of its own, so the phone serves as the middleman, as Even doesn't support external keyboards very well. G2Pad pairs with the phone as a normal Bluetooth keyboard through an Even Hub app I will build as a future project. Even Hub apps are web apps that the Even Realities app runs in a WebView on the phone; they draw to the glasses through the Even Hub SDK ([Even Hub architecture](https://hub.evenrealities.com/docs/get-started/architecture)). The plan is for my G2 app to listen for the Q/W/E/S key presses and turn them into G2 actions!
-
-### Schematic
-
-![Schematic](docs/images/schematic.png)
-
-Each switch connects one XIAO pin to ground and uses the chip's internal pull-up, so there is no matrix and no diodes.
-
-### PCB
-
-![PCB front and back](docs/images/pcb.png)
-
-A 2-layer, 42 × 64 mm board with ground pours on both sides. Fabrication files are in [`pcb/gerbers.zip`](pcb/gerbers.zip), ready to upload to JLCPCB or any other fab.
-
-### Case
-
-![Exploded view](docs/images/exploded.png)
-
-Two 3D-printed parts:
-
-* **Bottom tray**: holds the LiPo under the PCB, has three standoffs, a USB-C opening, a slot for the power switch, and a lanyard hole.
-* **Top plate**: a 1.5 mm switch plate set at the MX standard height (5 mm above the PCB). It has screw bosses, plus a pocket on its underside for the XIAO.
-
-Three M2 × 12 screws go up through the tray and the PCB into the plate bosses, clamping everything together. 
-
-![Inside the case](docs/images/internals.png)
+![alt text](image-4.png)
+The parts are held together with three M2 x 12 mm screws that go up thru the tray and the PCB into the top plate. 
+## PCB
+Using KiCAD, the PCB ended up being 2 layers with a ground pour on both sides. The XIAO will be soldered onto the board at the bottom, and I'll put the four switches above the XIAO. The power switch is on the left edge of the first image attached here, and the battery plugs into a JST connector on the back of the board.
+![alt text](image-5.png)
+two short wires connect the board to the BAT+ and BAT- pads on the underside of the XIAO. 
+![alt text](image-6.png)
+the gerbers are in pcb/gerbers.zip and can be ordered from JLCPCB.
+## Schematic
+![alt text](image-8.png)
 
 ## Firmware
+G2Pad's firmware runs on ZMK, which is open source firmware for wireless keyboards. To change what the keys do, edit firmware/g2pad.keymap.
 
-G2Pad runs ZMK as a custom shield (`g2pad`) on the `xiao_ble` board. The GitHub Actions workflow I built in [`.github/workflows/build.yml`](.github/workflows/build.yml) builds the firmware on every push for my convenience :) 
+## Bill of Materials
+The parts come out to about $168 without tools and $263.10 with tools and shipping. See [BOM.csv](BOM.csv) for the full list of parts.
 
-To change what the keys do, I can edit [`firmware/g2pad.keymap`](firmware/g2pad.keymap). 
+## Credits
 
-## Bill of materials
+Inspired by Ben Vallack, a developer on YouTube who created his own macro pad for his Even Realities G2 glasses. Followed some of his tutorials (not 1:1) but none of his code is open-sourced and most of his tutorials and methodology are locked behind paywalls anyways. 
 
-See [BOM.csv](BOM.csv) for links!
+The XIAO nRF52840 and the glasses in my posters are placeholders. Keycaps by [Github](https://thegithubshop.com/products/1542509-00-key-caps-assorted-pack-of-8), firmware by [ZMK](https://zmk.dev/).
+
