@@ -3,6 +3,7 @@
 G2Pad is a four-key Bluetooth macro pad for the Even Realities G2 smart glasses with fast command input and direct control of the glasses's interface. 
 
 ![alt text](image.png)
+
 p.s. apologies for the sometimes fuzzy quality of my visuals and posters- I screenshotted them directly from Canva
 
 
