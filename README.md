@@ -67,10 +67,10 @@ The parts come out to about $168 without tools and $263.10 with tools and shippi
 
 ## Build Steps
 
-1. get all materials from the bom and order them (including the pcb from JLCPCB) then 3d the bottom and top trays
+1. get all materials from the bom and order them (including the pcb from JLCPCB) then 3d print the bottom and top trays
 2. clean up the prints
 3. soldering!! i will finish this section once i actually get my hardware but from my understanding ill def have to solder the BAT pads on the XIAO then solder the XIAO to the board
-4. put the MK switches into the top plate then line the pins up with the pcb then solder them in
+4. put the MX switches into the top plate then line the pins up with the pcb then solder them in
 5. flash the firmware 
 6. set the LiPo into the tray and plug into the JST socket
 7. screwing!! line up the pcb and plate and screw everything tg
