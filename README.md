@@ -59,7 +59,7 @@ The parts come out to about $168 without tools and $263.10 with tools and shippi
 
 ## Credits
 
-Inspired by Ben Vallack, a developer on YouTube who created his own macro pad for his Even Realities G2 glasses. Followed some of his tutorials (not 1:1) but none of his code is open-sourced and most of his tutorials and methodology are locked behind paywalls anyways. 
+Inspired by Ben Vallack, a developer on YouTube who created his own macro pad for his Even Realities G2 glasses. None of his code is open-sourced and most of his tutorials and methodology are locked behind paywalls anyways. No tutorials were followed.
 
 The XIAO nRF52840 and the glasses in my posters are placeholders. Keycaps by [Github](https://thegithubshop.com/products/1542509-00-key-caps-assorted-pack-of-8), firmware by [ZMK](https://zmk.dev/).
 
