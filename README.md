@@ -14,6 +14,13 @@ The main personal reason I built G2Pad was also to show my dad the product of hi
 Also special thanks to my teachers and friends involved in helping me develop these visuals and posters!!
 
 ![alt text](https://github.com/user-attachments/assets/dd0a4980-03c4-444c-b44a-beb6f59d9100)
+
+## How to use G2Pad
+1. slide the left switch to ON
+2. on your phone, open bluetooth and pair with 'G2Pad' 
+3. open an Even Hub app on your phone that listens for G2Pads keys (this is the part im building next after funding and hardware)
+4. use the four keys to move around the glasses (controls listed below under 'controls')
+5. to charge, plug a usb-c cable into the XIAO with the power switch to ON
 ## Features
 + 4 MX-style mechanical switches
 + Seeed Studio XIAO nRF52840 with Bluetooth Low Energy
@@ -52,10 +59,23 @@ the gerbers are in pcb/gerbers.zip and can be ordered from JLCPCB.
 ![alt text](https://github.com/user-attachments/assets/02b61150-ff1e-4c01-9b13-806c83bd9e45)
 
 ## Firmware
-G2Pad's firmware runs on ZMK, which is open source firmware for wireless keyboards. To change what the keys do, edit firmware/g2pad.keymap.
+G2Pad's firmware runs on ZMK, which is open source firmware for wireless keyboards. I didn't compile the firmware on my own mac either so instead I made a Github actions workflow. To change what the keys do, edit firmware/g2pad.keymap.
+
 
 ## Bill of Materials
-The parts come out to about $168 without tools and $263.10 with tools and shipping. See [BOM.csv](BOM.csv) for the full list of parts.
+The parts come out to about $168 without tools and $263.10 with tools and shipping. See [BOM.csv](BOM.csv) for the full list of parts
+
+## Build Steps
+
+1. get all materials from the bom and order them (including the pcb from JLCPCB) then 3d the bottom and top trays
+2. clean up the prints
+3. soldering!! i will finish this section once i actually get my hardware but from my understanding ill def have to solder the BAT pads on the XIAO then solder the XIAO to the board
+4. put the MK switches into the top plate then line the pins up with the pcb then solder them in
+5. flash the firmware 
+6. set the LiPo into the tray and plug into the JST socket
+7. screwing!! line up the pcb and plate and screw everything tg
+8. press on the four keycaps
+9. Done! pair 'g2pad' over bluetooth to the phone and start clicking thru ur g2.
 
 ## Credits
 
